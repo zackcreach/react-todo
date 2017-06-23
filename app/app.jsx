@@ -2,8 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var {Route, Router, IndexRoute, hashHistory} = require('react-router');
 
-// This is ES6 above (object destructuring), ES5 would look like this:
-// var Route = require('react-router').Route;
+var TodoApp = require('TodoApp');
 
 // Load foundation
 $(document).foundation();
@@ -12,6 +11,6 @@ $(document).foundation();
 require('style!css!sass!applicationStyles')
 
 ReactDOM.render(
-  <p>Template React 3</p>,
+  <TodoApp/>,
   document.getElementById('app')
 );
