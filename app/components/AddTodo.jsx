@@ -1,22 +1,26 @@
 var React = require('react');
+var {connect} = require('react-redux');
+var actions = require('actions');
 
-var AddTodo = React.createClass({
+export var AddTodo = React.createClass({
   onSubmit: function(e) {
     e.preventDefault();
-    var textStr = this.refs.text.value;
+    var {dispatch} = this.props;
+    var todoText = this.refs.todoText.value;
 
-    if (textStr.length == 0) {
-      this.refs.text.focus();
+    if (todoText.length > 0) {
+      this.refs.todoText.value = '';
+      dispatch(actions.addTodo(todoText));
     } else {
-      this.refs.text.value = '';
-      this.props.onAdd(textStr);
+      this.refs.todoText.focus();
+
     }
   },
   render: function() {
     return(
       <div className="container__footer">
         <form ref="form" onSubmit={this.onSubmit}>
-          <input type="text" ref="text" className="" placeholder="What is it you want to do?"/>
+          <input type="text" ref="todoText" className="" placeholder="What is it you want to do?"/>
           <button className="button expanded">Add Todo</button>
         </form>
       </div>
@@ -24,4 +28,4 @@ var AddTodo = React.createClass({
   }
 });
 
-module.exports = AddTodo;
+export default connect()(AddTodo);
