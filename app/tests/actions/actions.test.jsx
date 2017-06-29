@@ -145,5 +145,24 @@ describe('Actions', () => {
         done();
       }, done);
     });
+
+    it('should provide UID on login', () => {
+      var action = {
+        type: 'LOGIN',
+        uid: 444
+      };
+      var res = actions.login(action.uid);
+
+      expect(action).toEqual(res);
+    });
+
+    it('should logout successfully', () => {
+      var action = {
+        type: 'LOGOUT'
+      };
+      var res = actions.logout();
+
+      expect(res).toEqual(action);
+    });
   });
 });
