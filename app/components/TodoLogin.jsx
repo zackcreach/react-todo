@@ -3,7 +3,7 @@ import * as Redux from 'react-redux';
 
 import * as actions from 'actions';
 
-export class Login extends React.Component {
+export class TodoLogin extends React.Component {
   constructor(props) {
     super(props);
     this.onLogin = this.onLogin.bind(this);
